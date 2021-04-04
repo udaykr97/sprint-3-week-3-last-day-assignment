@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #display {
+            width: 50%;
+            height: auto;
+            border: 1px solid red;
+            box-shadow: -2px -2px 5px rgb(1, 65, 12), 2px 2px 10px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="display">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas.</p><br> Lorem, ipsum. <br>
+        <img src="./mens.jpg" alt="">
+    </div>
+
+    <script>
+        // index in one function
+
+        async function category(c) {
+            var value = c.value;
+
+            // var div = document.getElementById('display')
+            // div.innerText = null
+
+            //document.getElementById('sorting').style.display = 'block'
+
+            var responase = await fetch('https://fakestoreapi.com/products')
+            var alldata = await responase.json()
+            console.log(alldata)
+
+
+            alldata.forEach(element => {
+
+                if (element.category == value) {
+                    console.log(element.price)
+
+
+                    // var h3 = document.createElement('h3')
+                    // h3.textContent = `${element.title}`
+                    // var img = document.createElement('img')
+                    // img.setAttribute('src', `${element.image}`)
+
+                    // var p = document.createElement('p')
+                    // p.innerHTML = `Price: $${element.price} `
+
+                    // var btn1 = document.createElement('button')
+                    // btn1.textContent = 'Add to cart'
+                    // btn1.addEventListener('click', function() {
+                    //         addtocart(element)
+                    //     })
+                    // var btn2 = document.createElement('button')
+                    // btn2.innerHTML = `Add to favourite`
+                    // btn2.addEventListener('click', function() {
+                    //     addToFavourite(element)
+                    // })
+
+                    // var hr = document.createElement('hr')
+
+
+                    // div.append(h3, img, p, btn1, hr)
+
+
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
